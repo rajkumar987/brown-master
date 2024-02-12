@@ -27,6 +27,11 @@ const Address = () => {
     setCompletedSteps(2);
   };
 
+  const handlePrevious = () => {
+    setCurrentStep("generalConfiguration");
+    setCompletedSteps(1);
+  };
+
   const { fields, append, remove } = useFieldArray({
     control,
     name: "address",
@@ -108,12 +113,21 @@ const Address = () => {
               );
             })}
           </ul>
-          <button
-            className="bg-blue-600 text-gray-50/90 px-4 py-1.5 rounded-lg absolute -bottom-16 right-0"
-            type="submit"
-          >
-            Next
-          </button>
+          <div className="absolute -bottom-16 right-0 flex gap-3">
+            <button
+              className="bg-gray-400 text-gray-50/90 px-4 py-1.5 rounded-lg"
+              onClick={handlePrevious}
+            >
+              Previous
+            </button>
+
+            <button
+              className="bg-blue-600 text-gray-50/90 px-4 py-1.5 rounded-lg "
+              type="submit"
+            >
+              Next
+            </button>
+          </div>
         </form>
       </div>
     </div>

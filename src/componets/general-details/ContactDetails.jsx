@@ -15,7 +15,7 @@ const ContactDetails = ({ handleChange }) => {
   const onSubmit = (data) => {
     setFormValues((prev) => ({ ...prev, ...data }));
     setCurrentStep("address");
-    setCompletedSteps(1);
+    setCompletedSteps(0);
   };
   return (
     <form
@@ -26,7 +26,7 @@ const ContactDetails = ({ handleChange }) => {
       <div className="grid md:grid-cols-2 gap-3 py-6">
         <div className="relative">
           <input
-            type="text"
+            type="email"
             id="email_id"
             className="block rounded-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900  border appearance-none  focus:outline-none  peer"
             placeholder=" "

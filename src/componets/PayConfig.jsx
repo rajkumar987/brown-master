@@ -20,7 +20,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const PayConfig = () => {
   const { setFormValues } = useFormValues();
-  const { setCompletedSteps } = useStepper();
+  const { setCurrentStep, setCompletedSteps } = useStepper();
 
   const {
     handleSubmit,
@@ -43,6 +43,11 @@ const PayConfig = () => {
     control,
     name: "levelApprovals",
   });
+
+  const handlePrevious = () => {
+    setCurrentStep("address");
+    setCompletedSteps(1);
+  };
 
   return (
     <div className="flex flex-col justify-center md:items-center p-5 gap-20">
@@ -116,12 +121,21 @@ const PayConfig = () => {
               Add New Level
             </div>
           </div>
-          <button
-            className="bg-blue-600 text-gray-50/90 px-4 py-1.5 rounded-lg absolute -bottom-16 right-0"
-            type="submit"
-          >
-            Next
-          </button>
+          <div className="absolute -bottom-16 right-0 flex gap-3">
+            <button
+              className="bg-gray-400 text-gray-50/90 px-4 py-1.5 rounded-lg"
+              onClick={handlePrevious}
+            >
+              Previous
+            </button>
+
+            <button
+              className="bg-blue-600 text-gray-50/90 px-4 py-1.5 rounded-lg "
+              type="submit"
+            >
+              Next
+            </button>
+          </div>
         </form>
       </div>
       <Dialog
