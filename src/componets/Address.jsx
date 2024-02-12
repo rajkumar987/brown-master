@@ -29,7 +29,7 @@ const Address = () => {
 
   const handlePrevious = () => {
     setCurrentStep("generalConfiguration");
-    setCompletedSteps(1);
+    setCompletedSteps(0);
   };
 
   const { fields, append, remove } = useFieldArray({
@@ -48,7 +48,10 @@ const Address = () => {
           <ul className="py-6">
             {fields.map((field, index) => {
               return (
-                <li className="grid md:grid-cols-11 gap-3  my-4 relative">
+                <li
+                  className="grid md:grid-cols-11 gap-3  my-4 relative"
+                  key={field.id}
+                >
                   <div className="relative col-span-5">
                     <input
                       type="text"
@@ -115,8 +118,9 @@ const Address = () => {
           </ul>
           <div className="absolute -bottom-16 right-0 flex gap-3">
             <button
+              type="button"
               className="bg-gray-400 text-gray-50/90 px-4 py-1.5 rounded-lg"
-              onClick={handlePrevious}
+              onClick={() => handlePrevious()}
             >
               Previous
             </button>

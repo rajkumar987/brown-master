@@ -15,8 +15,9 @@ const ContactDetails = ({ handleChange }) => {
   const onSubmit = (data) => {
     setFormValues((prev) => ({ ...prev, ...data }));
     setCurrentStep("address");
-    setCompletedSteps(0);
+    setCompletedSteps(1);
   };
+
   return (
     <form
       className="bg-white shadow-md rounded-md w-full p-5 border relative"
