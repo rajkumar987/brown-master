@@ -44,6 +44,16 @@ export const navlist = [
       {
         name: "Sales",
         icon: TrendingUpOutlinedIcon,
+        childs: [
+          {
+            id: 1,
+            name: "Payments",
+          },
+          {
+            id: 2,
+            name: "Bills",
+          },
+        ],
       },
       {
         name: "Ledger",
